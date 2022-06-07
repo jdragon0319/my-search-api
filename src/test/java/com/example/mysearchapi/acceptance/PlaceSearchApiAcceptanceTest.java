@@ -1,14 +1,12 @@
 package com.example.mysearchapi.acceptance;
 
+import com.example.mysearchapi.AcceptanceTest;
 import com.example.mysearchapi.app.SearchPlacesResponse;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
@@ -16,18 +14,8 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(properties = "spring.profiles.active:test", webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class PlaceSearchApiAcceptanceTest {
-
-    @LocalServerPort
-    private int port;
-
-    @BeforeEach
-    public void setUp() {
-        if (RestAssured.port == RestAssured.UNDEFINED_PORT) {
-            RestAssured.port = port;
-        }
-    }
+@DisplayName("키워드 검색 테스트")
+public class PlaceSearchApiAcceptanceTest extends AcceptanceTest {
 
     @DisplayName("키워드를 입력하면 장소 이름을 검색,정렬 후 반환한다.")
     @Test
@@ -36,10 +24,10 @@ public class PlaceSearchApiAcceptanceTest {
 
         ExtractableResponse<Response> apiCallResult = RestAssured
                 .given().log().all()
-                    .accept(MediaType.APPLICATION_JSON_VALUE)
-                 .params(params)
+                .accept(MediaType.APPLICATION_JSON_VALUE)
+                .params(params)
                 .when()
-                    .get("/extsvc/my-search-api/v1/client/search/places")
+                .get("/extsvc/my-search-api/v1/client/search/places")
                 .then().log().all()
                 .extract();
 

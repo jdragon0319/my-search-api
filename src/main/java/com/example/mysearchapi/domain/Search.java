@@ -1,5 +1,6 @@
 package com.example.mysearchapi.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Search {
     protected Search() {
     }
 
+    @Builder
     public Search(String keyword, Long count) {
         this.keyword = keyword;
         this.count = count;
