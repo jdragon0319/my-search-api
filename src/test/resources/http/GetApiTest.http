@@ -1,0 +1,22 @@
+GET http://localhost:8080/extsvc/my-search-api/v1/client/search/places?keyword=인덕원 짜장면
+Accept: application/json
+
+###
+
+GET http://localhost:8080/extsvc/my-search-api/v1/client/search/places?keyword=인덕원 곱창
+Accept: application/json
+
+###
+
+GET http://localhost:8080/extsvc/my-search-api/v1/client/search/places?keyword=분당 삼겹살
+Accept: application/json
+
+###
+
+GET http://localhost:8080/extsvc/my-search-api/v1/client/search/places?keyword=카카오
+Accept: application/json
+
+###
+
+GET http://localhost:8080/extsvc/my-search-api/v1/client/search/topten
+Accept: application/json
