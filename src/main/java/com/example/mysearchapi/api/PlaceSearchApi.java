@@ -19,8 +19,4 @@ public class PlaceSearchApi {
         return ResponseEntity.ok(searchPlaceService.searchPlaces(keyword));
     }
 
-    @GetMapping("/extsvc/my-search-api/v1/client/search/count")
-    public ResponseEntity getCount(String keyword) {
-        return ResponseEntity.ok(searchPlaceService.searchCount(keyword));
-    }
 }

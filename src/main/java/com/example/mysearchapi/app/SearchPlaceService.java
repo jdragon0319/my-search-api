@@ -1,7 +1,6 @@
 package com.example.mysearchapi.app;
 
 import com.example.mysearchapi.domain.Places;
-import com.example.mysearchapi.domain.Search;
 import com.example.mysearchapi.query.PlaceQueryService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,11 +29,4 @@ public class SearchPlaceService {
                 .build();
     }
 
-    public SearchCountResponse searchCount(String keyword) {
-        Search search = searchCountService.findByKeyword(keyword);
-        return SearchCountResponse.builder()
-                .keyword(search.getKeyword())
-                .count(search.getCount())
-                .build();
-    }
 }

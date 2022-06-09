@@ -4,8 +4,6 @@ import com.example.mysearchapi.domain.Search;
 import com.example.mysearchapi.domain.SearchRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class SearchCountService {
 
@@ -22,7 +20,4 @@ public class SearchCountService {
         repository.save(search);
     }
 
-    public Search findByKeyword(String keyword) {
-        return repository.findSearchByKeyword(keyword).orElse(Search.zero(keyword));
-    }
 }
