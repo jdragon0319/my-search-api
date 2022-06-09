@@ -1,7 +1,6 @@
 package com.example.mysearchapi.query;
 
-import com.example.mysearchapi.domain.Search;
-import com.example.mysearchapi.domain.SearchRepository;
+import com.example.mysearchapi.domain.SearchRepositoryHelper;
 import com.example.mysearchapi.domain.SearchTestDatas;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -22,13 +21,11 @@ class SearchTopTenQueryServiceIT {
     private SearchTopTenQueryService service;
 
     @Autowired
-    private SearchRepository searchRepository;
+    private SearchRepositoryHelper helper;
 
     @BeforeEach
     void setUp() {
-        for (Search search : SearchTestDatas.getSearchTestDatas()) {
-            searchRepository.save(search);
-        }
+        helper.saveTestData(SearchTestDatas.getSearchTestDatas());
     }
 
     @DisplayName("상위 10개 검색어 정렬 후 조회")

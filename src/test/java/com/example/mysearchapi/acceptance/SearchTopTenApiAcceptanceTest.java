@@ -1,10 +1,9 @@
 package com.example.mysearchapi.acceptance;
 
 import com.example.mysearchapi.AcceptanceTest;
-import com.example.mysearchapi.query.SearchTopTenResponse;
-import com.example.mysearchapi.domain.Search;
-import com.example.mysearchapi.domain.SearchRepository;
+import com.example.mysearchapi.domain.SearchRepositoryHelper;
 import com.example.mysearchapi.domain.SearchTestDatas;
+import com.example.mysearchapi.query.SearchTopTenResponse;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
@@ -17,18 +16,16 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("TOP 10 테스트")
+@DisplayName("TOP 10 인수테스트")
 public class SearchTopTenApiAcceptanceTest extends AcceptanceTest {
 
     @Autowired
-    private SearchRepository searchRepository;
+    private SearchRepositoryHelper helper;
 
     @BeforeEach
     public void setUp() {
         super.setUp();
-        for (Search search : SearchTestDatas.getSearchTestDatas()) {
-            searchRepository.save(search);
-        }
+        helper.saveTestData(SearchTestDatas.getSearchTestDatas());
     }
 
     @DisplayName("최다 검색, 최대 10개의 검색 목록을 반환한다.")

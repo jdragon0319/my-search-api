@@ -10,6 +10,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayName("외부api 호출 테스트")
 @SpringBootTest(properties = "spring.profiles.active:test")
 public class ExternalApiClientTest {
 

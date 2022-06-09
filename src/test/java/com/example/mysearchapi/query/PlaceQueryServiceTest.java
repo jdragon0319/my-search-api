@@ -1,7 +1,10 @@
 package com.example.mysearchapi.query;
 
 import com.example.mysearchapi.domain.Places;
-import com.example.mysearchapi.infra.rest.*;
+import com.example.mysearchapi.infra.rest.KakaoRestApiResponse;
+import com.example.mysearchapi.infra.rest.KakaoRestApiResponseItem;
+import com.example.mysearchapi.infra.rest.NaverRestApiResponse;
+import com.example.mysearchapi.infra.rest.NaverRestApiResponseItem;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +18,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 
-
+@DisplayName("PlaceQueryService 테스트")
 class PlaceQueryServiceTest {
 
     private ExternalSearchService searchServices1 = spy(ExternalSearchService.class);
@@ -59,7 +62,7 @@ class PlaceQueryServiceTest {
     @Test
     void 검색결과정렬() {
         Places places = placeQueryService.getPlace("인덕원 곱창");
-        assertThat(places.getSortedPlaceNames()).containsExactly("황제곱창","원조곱창","굿굿곱창","인생곱창");
+        assertThat(places.getSortedPlaceNames()).containsExactly("황제곱창", "원조곱창", "굿굿곱창", "인생곱창");
     }
 
 }

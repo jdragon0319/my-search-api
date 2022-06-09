@@ -10,6 +10,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayName("SearchRepository 테스트")
 @DataJpaTest
 public class SearchRepositoryTest {
 

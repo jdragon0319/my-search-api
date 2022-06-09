@@ -14,7 +14,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("키워드 검색 테스트")
+@DisplayName("키워드 검색 인수테스트")
 public class PlaceSearchApiAcceptanceTest extends AcceptanceTest {
 
     @DisplayName("키워드를 입력하면 장소 이름을 검색,정렬 후 반환한다.")
