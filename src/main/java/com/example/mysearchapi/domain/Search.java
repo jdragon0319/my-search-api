@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table
-public class Search implements Comparable {
+public class Search {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,15 +40,4 @@ public class Search implements Comparable {
         this.count++;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        Search other = (Search) o;
-        if (this.count - other.count > 0) {
-            return -1;
-        } else if (this.count - other.count < 0) {
-            return 1;
-        } else {
-            return this.keyword.compareTo(other.keyword);
-        }
-    }
 }
