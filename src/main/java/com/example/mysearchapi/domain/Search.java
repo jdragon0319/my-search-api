@@ -20,6 +20,13 @@ public class Search implements Comparable {
     }
 
     @Builder
+    public Search(Long id, String keyword, Long count) {
+        this.id = id;
+        this.keyword = keyword;
+        this.count = count;
+    }
+
+    @Builder
     public Search(String keyword, Long count) {
         this.keyword = keyword;
         this.count = count;

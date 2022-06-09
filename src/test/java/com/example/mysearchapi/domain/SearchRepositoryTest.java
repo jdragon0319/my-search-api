@@ -1,5 +1,7 @@
 package com.example.mysearchapi.domain;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -16,40 +18,24 @@ public class SearchRepositoryTest {
     @Autowired
     private SearchRepository searchRepository;
 
+    @BeforeEach
+    void setUp() {
+        for (Search search : SearchTestDatas.getSearchTestDatas()) {
+            searchRepository.save(search);
+        }
+    }
+
+    @DisplayName("키워드로 조회")
     @Test
-    void test() {
-        Search search1 = Search.builder().keyword("곱창").count(1L).build();
-        Search search2 = Search.builder().keyword("김치").count(5L).build();
-        Search search3 = Search.builder().keyword("김밥").count(10L).build();
-        Search search4 = Search.builder().keyword("삼겹살").count(25L).build();
-        Search search5 = Search.builder().keyword("치즈").count(15L).build();
-        Search search6 = Search.builder().keyword("참치").count(22L).build();
-        Search search7 = Search.builder().keyword("떡볶이").count(25L).build();
-        Search search8 = Search.builder().keyword("된장찌개").count(30L).build();
-        Search search9 = Search.builder().keyword("김치찌개").count(20L).build();
-        Search search10 = Search.builder().keyword("소고기").count(50L).build();
-        Search search11 = Search.builder().keyword("커피").count(17L).build();
-        Search search12 = Search.builder().keyword("환타").count(13L).build();
-        Search search13 = Search.builder().keyword("콜라").count(7L).build();
-        Search search14 = Search.builder().keyword("닭갈비").count(25L).build();
-        Search search15 = Search.builder().keyword("하몽").count(25L).build();
+    void 키워드조회() {
+        Search search = searchRepository.findSearchByKeyword("곱창").get();
+        assertThat(search.getId()).isEqualTo(1L);
+        assertThat(search.getKeyword()).isEqualTo("곱창");
+    }
 
-        searchRepository.save(search1);
-        searchRepository.save(search2);
-        searchRepository.save(search3);
-        searchRepository.save(search4);
-        searchRepository.save(search5);
-        searchRepository.save(search6);
-        searchRepository.save(search7);
-        searchRepository.save(search8);
-        searchRepository.save(search9);
-        searchRepository.save(search10);
-        searchRepository.save(search11);
-        searchRepository.save(search12);
-        searchRepository.save(search13);
-        searchRepository.save(search14);
-        searchRepository.save(search15);
-
+    @DisplayName("상위 10개 검색어 조회")
+    @Test
+    void 상위10개검색어조회() {
         List<Search> result = searchRepository.findTop10ByOrderByCountDesc();
         Collections.sort(result);
 
