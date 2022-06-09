@@ -32,8 +32,8 @@ public class Search {
         this.count = count;
     }
 
-    public static Search zero(String keyword) {
-        return new Search(keyword, 0L);
+    public static Search first(String keyword) {
+        return new Search(keyword, 1L);
     }
 
     public void plusCount() {
