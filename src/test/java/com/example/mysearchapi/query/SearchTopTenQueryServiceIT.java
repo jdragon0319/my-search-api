@@ -1,6 +1,6 @@
 package com.example.mysearchapi.query;
 
-import com.example.mysearchapi.domain.SearchRepositoryHelper;
+import com.example.mysearchapi.util.SearchRepositoryHelper;
 import com.example.mysearchapi.domain.SearchTestDatas;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

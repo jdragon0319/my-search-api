@@ -1,6 +1,6 @@
 package com.example.mysearchapi.acceptance;
 
-import com.example.mysearchapi.AcceptanceTest;
+import com.example.mysearchapi.util.AcceptanceTest;
 import com.example.mysearchapi.app.SearchPlacesResponse;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;

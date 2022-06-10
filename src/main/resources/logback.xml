@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds">
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%d] %-5level [%15.15thread{15}] %50.50(%36.36logger{36}) : %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="Collect" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%logger{36} [%d] %-5level %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <logger name="com.example.mysearchapi." level="INFO" additivity="false">
+        <appender-ref ref="Collect"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

@@ -40,6 +40,7 @@ public class NaverClientConfig {
                 .slidingWindow(20, 20, CircuitBreakerConfig.SlidingWindowType.COUNT_BASED)
                 .permittedNumberOfCallsInHalfOpenState(10)
                 .waitDurationInOpenState(Duration.ofSeconds(10L))
+                .writableStackTraceEnabled(false)
                 .build());
 
         FeignDecorators decorators = FeignDecorators.builder()

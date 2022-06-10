@@ -1,7 +1,7 @@
 package com.example.mysearchapi.acceptance;
 
-import com.example.mysearchapi.AcceptanceTest;
-import com.example.mysearchapi.domain.SearchRepositoryHelper;
+import com.example.mysearchapi.util.AcceptanceTest;
+import com.example.mysearchapi.util.SearchRepositoryHelper;
 import com.example.mysearchapi.domain.SearchTestDatas;
 import com.example.mysearchapi.query.SearchTopTenResponse;
 import io.restassured.RestAssured;

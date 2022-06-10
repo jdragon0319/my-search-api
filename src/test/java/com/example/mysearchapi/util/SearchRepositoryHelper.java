@@ -1,5 +1,7 @@
-package com.example.mysearchapi.domain;
+package com.example.mysearchapi.util;
 
+import com.example.mysearchapi.domain.Search;
+import com.example.mysearchapi.domain.SearchRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.test.context.ActiveProfiles;
 

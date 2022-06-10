@@ -1,4 +1,4 @@
-package com.example.mysearchapi;
+package com.example.mysearchapi.util;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;
