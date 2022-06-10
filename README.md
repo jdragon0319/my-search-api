@@ -1,6 +1,6 @@
 # My Search Api
 
-조회 api 연습 프로젝트
+조회 api 연습 프로젝트 (다른 계정에서 개발하다가 이 계정으로 변경)
 
 ## 상세정보
 
@@ -12,9 +12,9 @@
 
 ### 사용법
 
-프로젝트 Clone 후 프로젝트 실행
-- Edit Configurations 에서 Active profie 를 local 로 설정 후 실행
-- http 테스트는 GetApiTest.http 실행하면 된다. (또는 Postman 사용) 
+프로젝트 Clone 후 MySearchApiApplication 실행
+- Edit Configurations 에서 Active profiles 를 local 로 설정 후 실행
+- http 테스트는 어플리케이션 실행 후 GetApiTest.http 실행 
   
 ## 기능
 
@@ -93,7 +93,8 @@ Kakao, Naver API 를 사용해 검색 결과를 출력한다.
 ### 아직 적용하지 못한 목록
 
 - 레디스를 캐시 저장소로 활용하면 API 응답 시간 단축할 수 있고,  
-  외부 저장소에 문제가 생겨도 캐시에 저장되어 있는 데이터는 반환할 수 있다
+  외부 저장소에 문제가 생겨도 캐시에 저장되어 있는 데이터는 반환할 수 있다  
+  (레디스를 캐시로 사용한다면 데이터 동기화를 위해 비동기큐의 사용도 고려해야 할 수도 있음)
 - 아키텍처 설계
   - DB 이중화 : Replication 을 통해 부하 분산 및 서비스 안정성을 높일 수 있다
   - 웹서버 또는 API Gateway 를 통한 로드밸런싱
